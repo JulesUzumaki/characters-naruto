@@ -1,0 +1,130 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+ 
+}
+
+.big-div{
+    display: flex;
+    max-width: 95%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+}
+
+.big-div div{
+    margin: 0 5px 18px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe space-around;
+    align-items: safe center;
+}
+
+header{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    min-height: 20vh;
+    background-color: #EF8755;
+    border-radius: 3px;
+    color: white;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+header h1{
+    font-size: 45px;
+}
+
+.header-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.header-content p{
+    margin: 6px;
+}
+
+.text-character{
+    margin-top: 10px;
+}
+
+.div-small{
+    width: 40vh;
+    max-height: 65vh;
+    background-color: #D4D3DD;
+    transition: all ease 0.2s;
+    border-radius: 6px;
+    box-shadow: 0 0 5px gray;
+    margin: 0;
+
+}
+
+.div-small:hover{
+    cursor: pointer;
+    background-color: #c5c4d1;
+    box-shadow: 0 0 15px gray;
+}
+
+.div-text {
+    padding: 0px;
+    width: 90%;
+    overflow-y: auto;
+}
+
+.div-text p {
+    text-align: center;
+    line-height: 25px;
+}
+
+a{
+    color: whitesmoke;
+    transition: all ease 0.1s;
+}
+
+a:hover{
+    background-color: rgb(243, 173, 42);
+}
+
+img{
+    border-radius: 5px;
+    padding: 0;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.checkbox-div label, input{
+    margin: 2px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.checkbox-div{
+    width: 80%;
+    margin-left: 150px;
+    margin-right: 100px;
+    background-color: burlywood;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-around;
+    height: 13vh;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.checkbox-div div{
+    margin: 20px;
+}
