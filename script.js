@@ -1,6 +1,7 @@
 
 let nbPages = 1;
 let village = '""';
+let name = '""';
 let totalPagesNum;
 
 let div = document.createElement("div");
@@ -15,102 +16,42 @@ let mist = document.querySelector('#mist');
 let cloud = document.querySelector('#cloud');
 let all = document.querySelector('#all');
 
+let searchForm = document.querySelector('.search-form');
+let searchInput = document.querySelector('.search-input');
+
 //event listeners
 
-leaf.addEventListener("change", (e) => {
-    if (leaf.checked){
-        village = '"' + e.target.value +'"' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }else{
-        village = '""' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }
+searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    name =  '"' + searchInput.value + '"';
+    removeAllChildNodes(div);
+    accessValuePages();
 })
 
-sand.addEventListener("change", (e) => {
-    if (sand.checked){
-        village = '"' + e.target.value +'"' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }else{
-        village = '""' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }
-})
+const villageFilter = (e) => {
+    village = '"' + e.target.value +'"' ; ;
+    removeAllChildNodes(div);
+    accessValuePages();
+}
 
-rock.addEventListener("change", (e) => {
-    if (rock.checked){
-        village = '"' + e.target.value +'"' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }else{
-        village = '""' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }
-})
 
-rain.addEventListener("change", (e) => {
-    if (rain.checked){
-        village = '"' + e.target.value +'"' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }else{
-        village = '""' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }
-})
+leaf.addEventListener("change", villageFilter)
 
-mist.addEventListener("change", (e) => {
-    if (mist.checked){
-        village = '"' + e.target.value +'"' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }else{
-        village = '""' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }
-})
+sand.addEventListener("change", villageFilter)
 
-cloud.addEventListener("change", (e) => {
-    if (cloud.checked){
-        village = '"' + e.target.value +'"' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }else{
-        village = '""' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }
-})
+rock.addEventListener("change", villageFilter)
+
+rain.addEventListener("change", villageFilter)
+
+mist.addEventListener("change", villageFilter)
+
+cloud.addEventListener("change", villageFilter)
 
 all.addEventListener("change", (e) => {
-    if (all.checked){
-        village = '""' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }else{
-        village = '""' ;
-        removeAllChildNodes(div);
-        accessValuePages();
-    }
+    village = '""';
+    removeAllChildNodes(div);
+    accessValuePages();
 })
-
-
-
-
-
-
-
-
-
-
-
 
 //Functions
 //the query
@@ -118,7 +59,7 @@ const updateQuery = () =>{
     const queryHuh =  `
 query{
     
-    characters(filter: {village: ${village} }, page: ${nbPages}){
+    characters(filter: {name: ${name}, village: ${village} }, page: ${nbPages}){
         info {
             count
             pages
@@ -142,7 +83,6 @@ return queryHuh;
 
 //total pages
 const totalPages = (data) => {
-    console.log(data);
     totalPagesNum = data.data.characters.info.pages;
     return totalPagesNum;
 };
@@ -156,6 +96,7 @@ function removeAllChildNodes(div) {
 //loop over the characters and create a div to show them 
 const showCharacters = data => {
     data.data.characters.results.forEach(result => {
+
         const resultDiv = document.createElement('div');
         const resultTextDiv = document.createElement('div');
         const resultImg = document.createElement('img');
@@ -268,10 +209,17 @@ const accessValuePages = async () => {
     nbPages = 1;
     totalPagesNum = 1;
     updateQuery();
-    console.log(updateQuery() + 'hey dude ');
     fetchingTotalPages()
     .then((data) => {
         totalPages(data);
+        if(totalPagesNum === 0){
+            console.log('its 0 !!');
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('new-div')
+            newDiv.innerText = "No result sorry ...";
+            div.appendChild(newDiv);
+
+        }
         callingFetch(); 
     });
 };

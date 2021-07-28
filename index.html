@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Naruto</title>
 </head>
 <body> 
     
     <header>
+        <img src="./2560px-Naruto_logo.svg.png" alt="">
         <h1>The Naruto Experience</h1>
         <div class="header-content">
             <p>This website was created using <a href="https://www.narutoql.com/graphql">this</a> API.</p>
@@ -17,7 +19,7 @@
         </div>
     </header>
     
-<div class="checkbox-div">
+<div class="checkbox-div"> 
     <div>
 <input type="radio" id="leaf" name="village" value="leaf">
 <label for="leaf">Leaf Village</label><br>
@@ -49,10 +51,18 @@
 </div>
 
     <div>
-        <input type="radio" id="all" name="village" value="all">
+        <input type="radio" id="all" name="village" value="all" checked="checked">
         <label for="cloud-village">All Villages</label><br>
         </div>
     </div>
+
+
+<div class="search-div">
+    <form class="search-form">
+        <input type="text" placeholder="Search a name.." class="search-input" >
+        <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+    </form>
+</div>
 
     
 

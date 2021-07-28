@@ -6,6 +6,7 @@
 
 body{
     font-family: sans-serif;
+    background-color: rgb(6, 6, 47);
  
 }
 
@@ -37,11 +38,12 @@ header{
     border-radius: 3px;
     color: white;
     margin-left: 100px;
-    margin-right: 100px;
+    margin-right: 100px;padding-bottom: 30px;
 }
 
 header h1{
     font-size: 45px;
+    margin-top: 15px;
 }
 
 .header-content{
@@ -61,7 +63,7 @@ header h1{
 
 .div-small{
     width: 40vh;
-    max-height: 65vh;
+    max-height: 63vh;
     background-color: #D4D3DD;
     transition: all ease 0.2s;
     border-radius: 6px;
@@ -71,7 +73,6 @@ header h1{
 }
 
 .div-small:hover{
-    cursor: pointer;
     background-color: #c5c4d1;
     box-shadow: 0 0 15px gray;
 }
@@ -118,13 +119,61 @@ img{
     border-radius: 3px;
     display: flex;
     justify-content: space-around;
-    height: 13vh;
+    height: 11vh;
     align-items: center;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     padding: 0;
+    padding-top: 8px;
 }
 
 .checkbox-div div{
     margin: 20px;
+}
+
+.search-input{
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    cursor: auto;
+}
+
+.search-btn{
+    padding: 6px 10px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-btn:hover{
+    background: #ccc;
+}
+
+.search-div{
+    text-align: center;
+}
+
+.search-div{
+    background-color: burlywood;
+    padding: 20px;
+    margin: 30px;
+    margin-top: 0;
+    padding-top: 0;
+    width: 80%;
+    margin-left: 150px;
+    margin-right: 100px;
+}
+
+.new-div{
+    margin-top: 30px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+header img {
+    width: 200px;
 }
